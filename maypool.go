@@ -34,7 +34,7 @@ func (pool *Maypool) Shutdown() {
 
 func (pool *Maypool) newWorker() {
 	pool.nworker++
-	go func(i int) {
+	go func(workerID int) {
 		for {
 			task_, ok := <-pool.taskChan
 			if !ok {
